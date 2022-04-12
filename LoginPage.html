@@ -3,25 +3,34 @@
 <head>
      <title>Login</title>
      <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
 <body>
-    <form class="form">
-        <div>
-            <h2>Login Page</h2>
-            <label for="username">Username</label><br>
-            <input type="text" name="user" placeholder="UserName">
+<div class="form-container">
+        <h2>Login Here</h2>
+        <div class="input-box">
+            <i class="fa fa-envelope-o"></i>
+            <input type="text" name="username" placeholder="UserName">
+            <i class="fa fa-times u_times"></i>
+            <i class="fa fa-check u_check"></i>
+
         </div>
 
-        <div>
-            <label for="password">Password</label><br>
+        <div class="input-box">
+            <i class="fa fa-key"></i>
             <input type="text" name="password" placeholder="Password">
-        </div>
+            <i class="fa fa-times u_times"></i>
+            <i class="fa fa-check u_check"></i>
+            <span class="eye">
+                <i id="hide1" class="fa fa-eye"></i>
+                <i id="hide2" class="fa fa-eye-slash"></i>
 
-        <div>
-            <button type="submit">Login</button>
+            </span>
+
         </div>
-        
-    </form>
+        <button type="button" class="login-btn">Login</button>
+</div>
     
 <script type="text/javascript" src="login.js"></script>
 </body>

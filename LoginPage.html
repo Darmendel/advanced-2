@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
      <title>Login</title>
-     <link rel="style" type="text/css" href="./styrle.css">
+     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="Login page">
-        <h1>Login Page</h1>
-        <form action="#" method="post"></form>
-        <p>User Name</p>
-        <input type="text" name="user" placeholder="User Name">
-        <p>Password</p>
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit">Login</button>
-    </div>
+    <form class="form">
+        <div>
+            <h2>Login Page</h2>
+            <label for="username">Username</label><br>
+            <input type="text" name="user" placeholder="UserName">
+        </div>
+
+        <div>
+            <label for="password">Password</label><br>
+            <input type="text" name="password" placeholder="Password">
+            
+        </div>
+
+        <div>
+            <button type="submit">Login</button>
+        </div>
+        
+    </form>
+    
+<script type="text/javascript" src="login.js"></script>
 </body>
 </html>

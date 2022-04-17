@@ -1,20 +1,20 @@
-var lst = document.getElementById('lst');
-var messages = MessageList();
-
-const createRecipient = function(list ,name) {
+const addRecipient = function (name) {
+    var ul = document.getElementById('lst');
     var li = document.createElement('li');
-    li.textContent = name;
-    // var r = Recipient(name);
-    addRecipient(list, li);
-}
-
-const addRecipient = function(list, li) {
-    list.appendChild(li);
-    var r = Recipient(li.textContent);
-    messages.append(r);
-}
+    li.className = "list-group-item d-flex align-items-center";
+    var i = document.createElement('i');
+    i.className = "bi bi-person-video";
+    var span = document.createElement('span');
+    span.innerHTML = name;
+    var cite = document.createElement('cite');
+    cite.className = "w-100 ms-5";
+    cite.title = "Source Title";
+    cite.innerHTML = "1 minute ago";
+    li.appendChild(i);
+    li.appendChild(span);
+    li.appendChild(cite);
+    ul.appendChild(li);
+} 
 
 var names = ['Micheal', 'Dwight', 'Jim', 'Pam', 'Stanley'];
-for (n in names) {
-    createRecipient(lst, names[n]);
-}
+names.forEach(name => addRecipient(name));

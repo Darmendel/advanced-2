@@ -1,0 +1,18 @@
+.list-group li {
+    width: 350px;
+    margin: 1px;
+    
+}
+
+.list-group span {
+    margin-inline-start: 20px;
+    column-width: 850px; /* change this to something dynamic */
+}
+
+.list-group cite {
+    /* position: absolute; */
+    top: 0px;
+    /* right: 18px; */
+    font-size: x-small;
+    
+}

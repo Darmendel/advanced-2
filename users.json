@@ -1,0 +1,27 @@
+{
+    "user1": {
+        "name" : "Micheal",
+        "password" : "Mi12345",
+        "id" : 1
+    },
+    "user2": {
+        "name" : "Dwight",
+        "password" : "Dw12345",
+        "id" : 2
+    },
+    "user3": {
+        "name" : "Jim",
+        "password" : "Ji12345",
+        "id" : 3
+    },
+    "user4": {
+        "name" : "Pam",
+        "password" : "Pa12345",
+        "id" : 4
+    },
+    "user5": {
+        "name" : "Stanely",
+        "password" : "St12345",
+        "id" : 5
+    }
+}

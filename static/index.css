@@ -1,18 +1,139 @@
-.list-group li {
-    width: 350px;
-    margin: 1px;
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(
+        #d6c4fb 0%,
+        #d6c4fb 130px,
+        #eae6f3 130px,
+        #eae6f3 100%);
+}
+
+.container-fluid {
+    position: relative;
+    width: 1290px;
+    max-width: 100%;
+    height: calc(100vh - 40px);
+    background: rgb(251, 251, 251);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.06);
+    display: flex;
+}
+
+.container-fluid .left {
+    position: relative;
+    flex: 30%;
+    background: #fff;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    margin-inline-end: 100px;
+}
+
+.container-fluid .right {
+    position: absolute;
+    margin-inline-start: 370px;
+    width: 932px;
+    flex: 70%;
+    background: #fff;
+    padding: 0%;
+}
+
+.container-fluid .right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(250, 247, 251);
+    opacity: 0.06;
+}
+
+/* .header {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: #ededed;
+    display: flex;
+    justify-content: space-between;
+} */
+
+.list-group li {
+    width: 370px;
+}
+
+.userimg {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.userimage {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    /* overflow: hidden; */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.im {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* #c { */
+    /* margin-top: 10px;
+    margin-left: 5px; */
+
+/* } */
+
 
 .list-group span {
     margin-inline-start: 20px;
-    column-width: 850px; /* change this to something dynamic */
+    column-width: 850px;
+    /* change this to something dynamic */
 }
 
 .list-group cite {
-    /* position: absolute; */
-    top: 0px;
-    /* right: 18px; */
+    /* top: 0px; */
     font-size: x-small;
-    
+    margin-left: 22px;
+}
+
+#lst li:hover {
+    background-color: rgb(215, 248, 210);
+    cursor: pointer;
+}
+
+.left {
+    /* width: 0%; */
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.row {
+    /* --bs-gutter-x: 0; */
+    width: 370px;
+    /* margin-right: 5px; */
+}
+
+.container-fluid {
+    padding-left: 0%;
+}
+
+#top {
+    width: 931px;
 }

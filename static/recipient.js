@@ -1,8 +1,6 @@
 export class Recipient {
     constructor(name) {
         this.name = name;
-        this.display();
-        // display(picture, this.setTimestamp());
     }
 
     // 
@@ -23,27 +21,7 @@ export class Recipient {
     }
 
     display() {
-        // document.write("<li class='list-group-item d-flex align-items-center'>");
-        // document.write("<i class='bi bi-person-video'></i>");
-        // document.write("<span>Micheal</span>");
-        // document.write("<cite class='w-100 ms-5' title='Source Title'>1 minute ago</cite>");
-        // document.write("</li>");
         
-        // var txt = document.createTextNode(document.body.innerHTML);
-        var ul = document.getElementById('lst');
-        var i = document.createElement()
-        // ul.appendChild(txt);
-        document.body.appendChild(ul);
     }
 
-    // display(picture, time) {
-    //     if (picture) {
-
-    //     }
-
-
-    // }
 }
-
-// export class Recipient {};
-// var r = new Recipient("r");

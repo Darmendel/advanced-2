@@ -19,7 +19,13 @@ const display = function(user) {
 //     let user = prompt("Add new contact", "Catomi");
 // }
 
-export const addRecipient = function(user) {
+// function plus() {
+//     let user = prompt("Add new contact", "");
+//     const lst = document.getElementById('lst');
+//     lst.innerHTML += addRecipient(user);
+// }
+
+const addRecipient = function(user) {
     let ul = document.getElementById('lst');
     let li = document.createElement('li');
     li.className = "list-group-item d-flex align-items-center";
@@ -71,8 +77,8 @@ export const addRecipient = function(user) {
 }
 
 const users = [
-    {name : "Micheal Scott", nickname : "Prison Mike", img : "/static/icon.png", password : "12345", id : 1},
-    {name : "Dwight Schrute", nickname : "Dwight", img : "/static/icon.png", password : "12345", id : 2},
+    {name : "Micheal Scott", nickname : "Prison Mike", img : "/static/prisonmike.png", password : "12345", id : 1},
+    {name : "Dwight Schrute", nickname : "Dwight", img : "/static/dd.png", password : "12345", id : 2},
     {name : "Jim Halpert", nickname : "Jimothy", img : "/static/icon.png", password : "12345", id : 3},
     {name : "Pam Beesly", nickname : "Pamela", img : "/static/icon.png", password : "12345", id : 4},
     {name : "Stanely Hudson", nickname : "Stanely the manley", img : "/static/icon.png", password : "12345", id : 5},

@@ -138,6 +138,19 @@ body {
     width: 931px;
 }
 
-/* #liveAlertPlaceholder {
-    padding-left: 400px;
-} */
+#addContactTop {
+    background-color: #c5ecf4;
+}
+
+#addContactMiddle {
+    background-color: #eff8fa;
+}
+
+.mx-3 {
+    margin-right: 0%!important;
+    margin-left: 0%!important;
+}
+
+#addContactBottom {
+    background-color: #dbf3f8;
+}

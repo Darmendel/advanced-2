@@ -1,37 +1,33 @@
-const display = function(user) {
-    console.log(4);
-    // var div = document.getElementById('chat');
-    // var l = document.createElement('li');
-    // l.className = "list-group-item d-flex align-items-center";
+var numberOfUsers = 5;
 
-    // var im = document.createElement('img');
-    // im.src = user.img;
-    // im.className = "userimage";
-
-    // var sp = document.createElement('span');
-    // sp.innerHTML = user.nickname;
-
-    // l.appendChild(im);
-    // div.appendChild(l);
+const exists = function(user, users) {
+    return users.some(u => u.name === user);
 }
 
-// const plus = function() {
-//     let user = prompt("Add new contact", "Catomi");
-// }
+const empty = function() {
+    let submit = document.getElementById('floatingInputValue');
+    submit.value = '';
+}
 
-// function plus() {
-//     let user = prompt("Add new contact", "");
-//     const lst = document.getElementById('lst');
-//     lst.innerHTML += addRecipient(user);
-// }
+const checkRecipient = function(user, users) {
+    if (user && !exists(user, users)) {
+        addRecipient(user);
+    }
+    empty();
+}
 
 const addRecipient = function(user) {
+    if (!user) {
+        return;
+    }
+
+    if (!(typeof user === 'object')) {
+        user = {name: user, nickname: user, img: "/static/icon.png", password: "12345", id: ++numberOfUsers}
+    }
+
     let ul = document.getElementById('lst');
     let li = document.createElement('li');
     li.className = "list-group-item d-flex align-items-center";
-
-    // li.onclick = display;
-    // li.onclick.arguments = user;
 
     li.onclick = function() {
         let div = document.getElementById('chat');
@@ -75,14 +71,4 @@ const addRecipient = function(user) {
     li.appendChild(cite);
     ul.appendChild(li);
 }
-
-const users = [
-    {name : "Micheal Scott", nickname : "Prison Mike", img : "/static/prisonmike.png", password : "12345", id : 1},
-    {name : "Dwight Schrute", nickname : "Dwight", img : "/static/dd.png", password : "12345", id : 2},
-    {name : "Jim Halpert", nickname : "Jimothy", img : "/static/icon.png", password : "12345", id : 3},
-    {name : "Pam Beesly", nickname : "Pamela", img : "/static/icon.png", password : "12345", id : 4},
-    {name : "Stanely Hudson", nickname : "Stanely the manley", img : "/static/icon.png", password : "12345", id : 5},
-]
-
-users.forEach(user => addRecipient(user));
 

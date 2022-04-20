@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const fs = require('fs');
-const port = 12355;
+const port = 12357;
 var database;
 
 app.use("/static", express.static('./static/'));

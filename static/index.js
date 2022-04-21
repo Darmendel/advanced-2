@@ -155,7 +155,7 @@ const addRecipient = function (user) {
     }
 
     if (!(typeof user === 'object')) {
-        user = { name: user, nickname: user, img: "/static/icon.png", password: "12345", id: ++numberOfUsers }
+        user = { name: user, nickname: user, img: "/static/images/icon.png", password: "12345", id: ++numberOfUsers }
     }
 
     let ul = document.getElementById('lst');

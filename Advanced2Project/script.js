@@ -15,6 +15,7 @@ form.onsubmit = (e)=>{
     pass.classList.remove("shake");
   }, 500);
 
+
   eInput.onkeyup = ()=>{user_func();} //calling function
   pInput.onkeyup = ()=>{pass_func();} //calling function
 
@@ -43,7 +44,7 @@ form.onsubmit = (e)=>{
     }
   }
 
-  function validacija() {
+  function validication() {
 
     let user = document.getElementById('user');
     let listOptions = document.querySelectorAll("#list option");

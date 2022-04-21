@@ -140,3 +140,17 @@ form input[type="submit"]{
   color: #fff;
   font-size: 15px;
 }
+
+.form-submit {
+  margin: 40px auto 20px;
+  width: 70%;
+  display: block;
+  outline: none;
+  padding: 10px 0;
+  border: 1px solid #fff;
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  font-size: 15px;
+  
+}

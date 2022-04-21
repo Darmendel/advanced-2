@@ -154,3 +154,15 @@ body {
 #addContactBottom {
     background-color: #dbf3f8;
 }
+
+.form-control {
+    line-height: 1.7;
+}
+
+.btn-toolbar {
+    padding-bottom: 100px!important;
+}
+
+/* #pic {
+    data-bs-target: "#modalSubscriptionForm";
+} */

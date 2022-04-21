@@ -140,11 +140,11 @@ body {
     margin-bottom: 20px;
 }
 
-#inner {
+/* #inner {
     position: relative;
-    height: 500px;
-    background-color: #d6c4fb;
-}
+    height: 320px;
+    width: 932px;
+} */
 
 #bottom {
     margin-top: 20px;
@@ -233,10 +233,12 @@ body {
 
 .myMsg {
     justify-content: flex-end;
+    margin-bottom: 0%;
 }
 
 .recMsg {
     justify-content: flex-start;
+    margin-bottom: 0%;
 }
 
 .recMsg p {

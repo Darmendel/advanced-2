@@ -1,4 +1,5 @@
 var numberOfUsers = 5;
+var newUsers = [];
 
 const exists = function (user, users) {
     return users.some(u => u.name === user);
@@ -7,6 +8,13 @@ const exists = function (user, users) {
 const empty = function(id) {
     let submit = document.getElementById(id);
     submit.value = '';
+}
+
+const time = function() {
+    var d = new Date();
+    var hour = (d.getHours() < 10 ? '0' : '') + d.getHours();
+    var minutes = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
+    return hour + ':' + minutes;
 }
 
 const checkRecipient = function(user, users) {
@@ -119,7 +127,7 @@ const displayInnerChat = function(user) {
     let div = document.createElement('div');
     div.className = "chats";
     let chatbox = document.createElement('div');
-    chatbox.className = "chatbox";
+    chatbox.className = "chatbox card-text";
 
     sendMessage(user.chat.rec1, chatbox);
     sendMessage(user.chat.sent, chatbox, false);
@@ -150,9 +158,10 @@ const displayChat = function(user) {
     sp.innerHTML = user.nickname;
 
     // middle
-    let innerChat = document.createElement('div');
-    innerChat.className = "list-group-item d-flex align-items-center";
-    innerChat.id = "inner";
+    let inner = document.createElement('div');
+    inner.className = "card position-absolute bottom-0 start-0";
+    u.appendChild(inner);
+    inner.id = "inner";
     displayInnerChat(user);
 
     // bottom
@@ -163,7 +172,6 @@ const displayChat = function(user) {
     let button = document.createElement('button');
     button.className = "btn btn-outline-info";
     button.type = "button";
-    // button.ariaExpanded = "false";
     button.id = "b-input";
     button.onclick = buttons;
     
@@ -186,12 +194,12 @@ const displayChat = function(user) {
         let chatbox = document.createElement('div');
         chatbox.className = "chatbox";
 
-        sendMessage(input.value, chatbox);
+        sendMessage(input.value + '<br><span>' + time() + '</span', chatbox);
 
         div.appendChild(chatbox);
         chat.appendChild(div);
 
-        
+        input.value = '';
     }
 
     button.appendChild(i1);
@@ -212,7 +220,13 @@ const addRecipient = function(user) {
     }
 
     if (!(typeof user === 'object')) {
+        let b = newUsers.some(u => u === user);
+        if (b) {
+            return;
+        }
         user = { name: user, nickname: user, img: "/static/images/icon.png", password: "12345", id: ++numberOfUsers, chat: {rec1: "", sent: "", rec2: ""} }
+        newUsers.push(user.name);
+        
     }
 
     let ul = document.getElementById('lst');
@@ -220,9 +234,6 @@ const addRecipient = function(user) {
     li.className = "list-group-item d-flex align-items-center";
 
     li.onclick = function () {
-        // let div = document.getElementById('chat');
-        // let chatbox = document.getElementById(user.chat);
-        // div.innerHTML = "";
         displayChat(user);
     }
 
@@ -243,52 +254,3 @@ const addRecipient = function(user) {
     li.appendChild(cite);
     ul.appendChild(li);
 }
-
-
-// const add = function (user, elementById, onclick) {
-//     let elm = document.getElementById(elementById);
-//     let li = document.createElement('li');
-//     li.className = "list-group-item d-flex align-items-center";
-//     li.onclick = function() {
-//         add(user, elementById, true);
-//     }
-
-//     let img = document.createElement('img');
-//     img.src = user.img;
-//     img.className = "userimage";
-
-//     let span = document.createElement('span');
-//     span.innerHTML = user.nickname;
-//     let u, cite;
-
-//     if (onclick) {
-//         elm.innerHTML = "";
-//         u = document.createElement('ul');
-//         u.className = "list-group";
-//         li.id = "top";
-//         span.className = "w-100 m-1 ms-4";
-
-        
-        
-//     } else {
-//         cite = document.createElement('cite');
-//         cite.className = "w-100 ms-5";
-//         cite.title = "Source Title";
-//         cite.innerHTML = "1 minute ago";
-
-        
-        
-//     }
-
-//     li.appendChild(img);
-//     li.appendChild(span);
-
-//     if (onclick) {
-//         u.appendChild(li);
-//         elm.appendChild(u);
-//     } else {
-//         li.appendChild(cite);
-//         ul.appendChild(li);
-//     }
-
-// }

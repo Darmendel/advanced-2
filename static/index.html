@@ -59,8 +59,8 @@
                                             </div>
                                             <div class="modal-footer d-flex justify-content-center"
                                                 id="addContactBottom">
-                                                <button type="submit" class="btn btn-outline-dark" data-bs-dismiss="modal"
-                                                    src="index.js"
+                                                <button type="submit" class="btn btn-outline-dark"
+                                                    data-bs-dismiss="modal" src="index.js"
                                                     onclick="checkRecipient(floatingInputValue.value, users)">Add<i
                                                         class="fas fa-paper-plane-o ml-1"></i></button>
                                             </div>
@@ -76,9 +76,139 @@
 
             <!-- right side -->
             <div class="right">
-                <div class="bg-light vh-100" id="chat"></div>
+                <div class="bg-light vh-100" id="chat">
+                    <!-- <div class="chatbox">
+                        <div class="myMsg">
+                            <p>
+                                Hi
+                                <br><span>12:18</span>
+                            </p>
+                        </div>
+                        <div class="recMsg">
+                            <p>
+                                Hi
+                                <br><span>12:18</span>
+                            </p>
+                        </div>
+                    </div> -->
+
                 </div>
             </div>
+
+            <!--Modal upload image-->
+            <div class="modal fade" id="modalUploadImage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header text-center" id="addContactTop">
+                            <h4 class="modal-title w-100 font-weight-bold">Upload Image</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body mx-3" id="addContactMiddle">
+                            <div class="md-form mb-5">
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <form class="form-floating">
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="inputGroupFile04"
+                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="inputGroupFileAddon04"><i class="bi bi-file-arrow-up"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal upload video-->
+            <div class="modal fade" id="modalUploadVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header text-center" id="addContactTop">
+                            <h4 class="modal-title w-100 font-weight-bold">Upload Video</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body mx-3" id="addContactMiddle">
+                            <div class="md-form mb-5">
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <form class="form-floating">
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="inputGroupFile04"
+                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                        <button class="btn btn-outline-secondary" type="button" onclick="sendVideo()"
+                                            id="inputGroupFileAddon04"><i class="bi bi-file-arrow-up"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal upload recording-->
+            <div class="modal fade" id="modalUploadRecording" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header text-center" id="addContactTop">
+                            <h4 class="modal-title w-100 font-weight-bold">Record</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body mx-3" id="addContactMiddle">
+                            <div class="md-form mb-5">
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <div class="mid" id="mid">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="record()"
+                                    id="inputGroupFileAddon04"><i class="bi bi-mic" id="rec"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function sendImage() {
+
+                }
+
+                function sendVideo() {
+                    // let send = document.getElementById('inputGroupFileAddon04');
+                    // $('#inputGroupFileAddon04').modal("toggle");
+                }
+
+                function record() {
+                    let div = document.getElementById('mid');
+                    let rec = document.getElementById('rec');
+                    rec.innerHTML = '<i class="bi bi-stop-fill"></i>';
+
+                    rec.onclick = function () {
+                        div.innerHTML = '';
+
+                        let stop = document.createElement('button');
+                        stop.className = "btn btn-outline-secondary disabled"; // notice that this button is disabled when pressed!
+                        let i1 = document.createElement('i');
+                        i1.className = "bi bi-mic";
+
+                        stop.appendChild(i1);
+                        div.appendChild(stop);
+
+                        let send = document.createElement('button');
+                        send.className = "btn btn-outline-secondary";
+                        send.onclick = function() {
+                            div.innerHTML = '<button class="btn btn-outline-secondary" type="button" onclick="record()" id="inputGroupFileAddon04"><i class="bi bi-mic" id="rec"></i></button>';
+                            $('#modalUploadRecording').modal("toggle");
+                        }
+                        let i2 = document.createElement('i');
+                        i2.className = "bi bi-file-arrow-up";
+
+                        send.appendChild(i2);
+                        div.appendChild(send);                        
+                    }
+                }
+            </script>
         </div>
     </div>
     </div>

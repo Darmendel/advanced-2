@@ -17,62 +17,24 @@ const checkRecipient = function(user, users) {
 }
 
 const uploadImage = function() {
-    let div = document.getElementById('chat');
-    let modal = document.createElement('div');
-    
-    modal.className = "modal fade";
-    modal.id = "uploadImg";
-    modal.tabIndex = "-1";
-    modal.ariaRoleDescription = "dialog";
-
-    $('#uploadImg').modal("show");
-    
-    let dialog = document.createElement('div');
-    dialog.className = "modal-dialog";
-
-    let input = document.createElement('div');
-    input.className = "input-group mb-3";
-
-    let file = document.createElement('div');
-    file.type = "file";
-    file.className = "form-control";
-    file.ariaLabel = "Upload";
-
-    let upload = document.createElement('button');
-    upload.className = "btn btn-outline-info";
-    upload.type = "button";
-    
-    let i = document.createElement('i');
-    i.className = "bi bi-file-arrow-up";
-
-    upload.appendChild(i);
-    input.appendChild(upload);
-    input.appendChild(file);
-    dialog.appendChild(input);
-    modal.appendChild(dialog);
-    div.appendChild(modal);
+    $('#modalUploadImage').modal("show");
 }
 
 const uploadVideo = function() {
-    
+    $('#modalUploadVideo').modal("show");
 }
 
 const uploadRecording = function() {
-
+    $('#modalUploadRecording').modal("show");
 }
 
 const buttons = function() {
     let div = document.getElementById('chat');
 
-    if (clicked) {
-        empty(div);
-        clicked = false;
-        return;
-    }
-
     let toolbar = document.createElement('div');
     toolbar.className = "btn-toolbar position-absolute bottom-0 start-0";
     toolbar.ariaRoleDescription = "toolbar";
+    toolbar.id = "toolbar";
 
     let group = document.createElement('div');
     group.className = "btn-group me-2";
@@ -83,7 +45,7 @@ const buttons = function() {
     image.className = "btn btn-info";
     image.onclick = uploadImage;
     // image.formTarget = "#modalSubscriptionForm";
-    image.id = "imgg";
+    // image.id = "img";
     let i1 = document.createElement('i');
     i1.className = "bi bi-file-image";
 
@@ -107,7 +69,8 @@ const buttons = function() {
     recorder.onclick = uploadRecording;
     // recorder.id = "rec";
     let i3 = document.createElement('i');
-    i3.className = "bi bi-mic";
+    i3.className = "bi bi-file-music";
+    // i3.className = "bi bi-mic";
 
     recorder.appendChild(i3);
     group.appendChild(recorder);
@@ -121,13 +84,18 @@ const buttons = function() {
     location.appendChild(i4);
     group.appendChild(location);
 
+    // close
+    let close = document.createElement('button');
+    close.className = "btn btn-info btn-close";
+    close.onclick = function() {
+        toolbar.innerHTML = '';
+    }
+
+    group.append(close);
+
     toolbar.appendChild(group);
     div.appendChild(toolbar);
-
-    clicked = true;
 }
-
-var clicked = false;
 
 const displayChat = function(user) {
     let div = document.getElementById('chat');
@@ -160,11 +128,6 @@ const displayChat = function(user) {
     // button.ariaExpanded = "false";
     button.id = "b-input";
     button.onclick = buttons;
-//     button.innerHTML = `<ul class="dropdown-menu">
-//     <li><a class="dropdown-item" href="#">Menu item</a></li>
-//     <li><a class="dropdown-item" href="#">Menu item</a></li>
-//     <li><a class="dropdown-item" href="#">Menu item</a></li>
-//   </ul>`
     
     let i = document.createElement('i');
     i.className = "bi bi-file-plus";
@@ -182,10 +145,6 @@ const displayChat = function(user) {
     u.appendChild(lt);
     u.appendChild(db);
     div.appendChild(u);
-//     <div class="input-group mb-3">
-//   <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
-//   <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-// </div>
 }
 
 
@@ -198,8 +157,6 @@ const addRecipient = function (user) {
     if (!(typeof user === 'object')) {
         user = { name: user, nickname: user, img: "/static/icon.png", password: "12345", id: ++numberOfUsers }
     }
-
-    // add(user, 'lst', false);
 
     let ul = document.getElementById('lst');
     let li = document.createElement('li');

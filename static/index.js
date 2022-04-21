@@ -97,6 +97,38 @@ const buttons = function() {
     div.appendChild(toolbar);
 }
 
+const sendMessage = function(message, chatbox, bool = true) {
+    if (message != "") {
+        let m = document.createElement('div');
+
+        if (bool) {
+            m.className = "message myMsg";
+        } else {
+            m.className = "message recMsg";
+        }
+        
+        let p = document.createElement('p');
+        p.innerHTML = message;
+        m.appendChild(p);
+        chatbox.appendChild(m);
+    }
+}
+
+const displayInnerChat = function(user) {
+    let chat = document.getElementById('chat');
+    let div = document.createElement('div');
+    div.className = "chats";
+    let chatbox = document.createElement('div');
+    chatbox.className = "chatbox";
+
+    sendMessage(user.chat.rec1, chatbox);
+    sendMessage(user.chat.sent, chatbox, false);
+    sendMessage(user.chat.rec2, chatbox);
+
+    div.appendChild(chatbox);
+    chat.appendChild(div);
+}
+
 const displayChat = function(user) {
     let div = document.getElementById('chat');
     div.innerHTML = "";
@@ -117,6 +149,12 @@ const displayChat = function(user) {
     sp.className = "w-100 m-1 ms-4";
     sp.innerHTML = user.nickname;
 
+    // middle
+    let innerChat = document.createElement('div');
+    innerChat.className = "list-group-item d-flex align-items-center";
+    innerChat.id = "inner";
+    displayInnerChat(user);
+
     // bottom
     let db = document.createElement('div');
     db.className = "input-group mb-3 position-absolute bottom-0 start-0";
@@ -129,33 +167,52 @@ const displayChat = function(user) {
     button.id = "b-input";
     button.onclick = buttons;
     
-    let i = document.createElement('i');
-    i.className = "bi bi-file-plus";
+    let i1 = document.createElement('i');
+    i1.className = "bi bi-file-plus";
 
     let input = document.createElement('input');
     input.type = "text";
     input.className = "form-control";
     input.ariaRoleDescription = "b-input";
 
-    button.appendChild(i);
+    let send = document.createElement('button');
+    send.className = "btn btn-outline-dark";
+    send.type = "button";
+    send.innerHTML = "Send";
+    send.onclick = function() {
+        let chat = document.getElementById('chat');
+        let div = document.createElement('div');
+        div.className = "chats";
+        let chatbox = document.createElement('div');
+        chatbox.className = "chatbox";
+
+        sendMessage(input.value, chatbox);
+
+        div.appendChild(chatbox);
+        chat.appendChild(div);
+
+        
+    }
+
+    button.appendChild(i1);
     db.appendChild(button);
     db.appendChild(input);
+    db.appendChild(send);
     lt.appendChild(im);
     lt.appendChild(sp);
     u.appendChild(lt);
     u.appendChild(db);
+    // u.appendChild(chatbox);
     div.appendChild(u);
 }
 
-
-
-const addRecipient = function (user) {
+const addRecipient = function(user) {
     if (!user) {
         return;
     }
 
     if (!(typeof user === 'object')) {
-        user = { name: user, nickname: user, img: "/static/images/icon.png", password: "12345", id: ++numberOfUsers }
+        user = { name: user, nickname: user, img: "/static/images/icon.png", password: "12345", id: ++numberOfUsers, chat: {rec1: "", sent: "", rec2: ""} }
     }
 
     let ul = document.getElementById('lst');
@@ -163,6 +220,9 @@ const addRecipient = function (user) {
     li.className = "list-group-item d-flex align-items-center";
 
     li.onclick = function () {
+        // let div = document.getElementById('chat');
+        // let chatbox = document.getElementById(user.chat);
+        // div.innerHTML = "";
         displayChat(user);
     }
 

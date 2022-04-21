@@ -20,7 +20,7 @@ form.onsubmit = (e)=>{
   pInput.onkeyup = ()=>{pass_func();} //calling function
 
   function user_func(){ 
-    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; 
+    let pattern = /^[^ ]+[^ ]+\.[a-z]{2,3}$/; 
     //pattern :
     if(!eInput.value.match(pattern)){ //if pattern not matched then add error and remove valid class
       username.classList.add("error");

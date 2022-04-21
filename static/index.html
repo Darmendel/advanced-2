@@ -22,7 +22,7 @@
         <div class="row">
             <!-- <div class="col-2"></div> -->
 
-            
+
             <!-- left side -->
             <div class="left">
                 <div class="col-3 bg-light vh-100">
@@ -78,23 +78,9 @@
             <!-- right side -->
             <div class="right">
                 <div class="bg-light vh-100" id="chat">
-                    <!-- <div class="chatbox">
-                        <div class="myMsg">
-                            <p>
-                                Hi
-                                <br><span>12:18</span>
-                            </p>
-                        </div>
-                        <div class="recMsg">
-                            <p>
-                                Hi
-                                <br><span>12:18</span>
-                            </p>
-                        </div>
-                    </div> -->
-
                 </div>
             </div>
+
 
             <!--Modal upload image-->
             <div class="modal fade" id="modalUploadImage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -162,7 +148,7 @@
                                 <i class="fas fa-user prefix grey-text"></i>
                                 <div class="mid" id="mid">
                                     <button class="btn btn-outline-secondary" type="button" onclick="record()"
-                                    id="inputGroupFileAddon04"><i class="bi bi-mic" id="rec"></i></button>
+                                        id="inputGroupFileAddon04"><i class="bi bi-mic" id="rec"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -198,7 +184,7 @@
 
                         let send = document.createElement('button');
                         send.className = "btn btn-outline-secondary";
-                        send.onclick = function() {
+                        send.onclick = function () {
                             div.innerHTML = '<button class="btn btn-outline-secondary" type="button" onclick="record()" id="inputGroupFileAddon04"><i class="bi bi-mic" id="rec"></i></button>';
                             $('#modalUploadRecording').modal("toggle");
                         }
@@ -206,7 +192,7 @@
                         i2.className = "bi bi-file-arrow-up";
 
                         send.appendChild(i2);
-                        div.appendChild(send);                        
+                        div.appendChild(send);
                     }
                 }
             </script>
@@ -219,12 +205,19 @@
         crossorigin="anonymous"></script>
 
     <script>
+        const messages = [
+            { rec1: "The worst thing about prison was the Dementors.<br><span>12:18</span>", sent: "I understand nothing<br><span>14:00</span>", rec2: "" },
+            { rec1: "I am faster than 80% of all snakes<br><span>08:00</span>", sent: "I don't believe you, continue.<br><span>08:01</span>", rec2: "Dwight, at 8am today, someone poisons the coffee. Do not drink the coffee. More instructions will follow.<br> Cordially,<br> Future Dwight.<br><span>08:02</span>" },
+            { rec1: "I had to put more and more nickels in his handset, so he would get used to the weight. Then one day… I took ‘em all out.<br><span>10:55</span>", sent: "From time to time I send Dwight faxes. From himself. From the future<br><span>16:24</span>", rec2: "" },
+            { rec1: "There’s nothing better than a beautiful day at the beach, filled with sun, surf, and… uh, diligent note-taking<br><span>09:08</span>", sent: "hi<br><span>13:14</span>", rec2: "" },
+            { rec1: "Boy, Have You Lost Your Mind, Cause I'll Help You Find It!<br><span>12:47</span>", sent: "I got them a toaster. I tried to return the toaster, but the store said they no longer sold that kind of toaster, so my house now has two toasters.<br><span>15:02</span>", rec2: "" }
+        ]
         const users = [
-            { name: "Micheal Scott", nickname: "Prison Mike", img: "/static/images/prisonmike.png", password: "12345", id: 1 },
-            { name: "Dwight Schrute", nickname: "Dwight", img: "/static/images/dd.png", password: "12345", id: 2 },
-            { name: "Jim Halpert", nickname: "Jimothy", img: "/static/images/jim.png", password: "12345", id: 3 },
-            { name: "Pam Beesly", nickname: "Pamela", img: "/static/images/pam.png", password: "12345", id: 4 },
-            { name: "Stanely Hudson", nickname: "Stanely the manley", img: "/static/images/stanley.png", password: "12345", id: 5 },
+            { name: "Micheal Scott", nickname: "Prison Mike", img: "/static/images/prisonmike.png", password: "12345", id: 1, chat: messages[0] },
+            { name: "Dwight Schrute", nickname: "Dwight", img: "/static/images/dd.png", password: "12345", id: 2, chat: messages[1] },
+            { name: "Jim Halpert", nickname: "Jimothy", img: "/static/images/jim.png", password: "12345", id: 3, chat: messages[2] },
+            { name: "Pam Beesly", nickname: "Pamela", img: "/static/images/pam.png", password: "12345", id: 4, chat: messages[3] },
+            { name: "Stanely Hudson", nickname: "Stanely the manley", img: "/static/images/stanley.png", password: "12345", id: 5, chat: messages[4] },
         ]
 
         users.forEach(user => addRecipient(user));

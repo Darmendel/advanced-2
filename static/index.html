@@ -77,7 +77,10 @@
 
             <!-- right side -->
             <div class="right">
-                <div class="bg-light vh-100" id="chat">
+                <div class="col-xs-3 col-sm-5 col-m-7 col-lg-12 col-xl-15 bg-light">
+                    <div class="position-relative" id="chat">
+
+                    </div>
                 </div>
             </div>
 
@@ -206,11 +209,11 @@
 
     <script>
         const messages = [
-            { rec1: "The worst thing about prison was the Dementors.<br><span>12:18</span>", sent: "I understand nothing<br><span>14:00</span>", rec2: "" },
-            { rec1: "I am faster than 80% of all snakes<br><span>08:00</span>", sent: "I don't believe you, continue.<br><span>08:01</span>", rec2: "Dwight, at 8am today, someone poisons the coffee. Do not drink the coffee. More instructions will follow.<br> Cordially,<br> Future Dwight.<br><span>08:02</span>" },
-            { rec1: "I had to put more and more nickels in his handset, so he would get used to the weight. Then one day… I took ‘em all out.<br><span>10:55</span>", sent: "From time to time I send Dwight faxes. From himself. From the future<br><span>16:24</span>", rec2: "" },
-            { rec1: "There’s nothing better than a beautiful day at the beach, filled with sun, surf, and… uh, diligent note-taking<br><span>09:08</span>", sent: "hi<br><span>13:14</span>", rec2: "" },
-            { rec1: "Boy, Have You Lost Your Mind, Cause I'll Help You Find It!<br><span>12:47</span>", sent: "I got them a toaster. I tried to return the toaster, but the store said they no longer sold that kind of toaster, so my house now has two toasters.<br><span>15:02</span>", rec2: "" }
+            { rec1: "The worst thing about prison was the Dementors.<br><span>12:18</span>", sent: "I understand nothing<br><span>14:00</span>", rec2: '<img src="static/images/britney.png" class="sentImage"><br><span>16:01</span>', rec3: "" },
+            { rec1: "I am faster than 80% of all snakes<br><span>08:00</span>", sent: "I don't believe you, continue.<br><span>08:01</span>", rec2: "Dwight, at 8am today, someone poisons the coffee. Do not drink the coffee. More instructions will follow.<br> Cordially,<br> Future Dwight.<br><span>08:02</span>", rec3: '<img src="static/images/detector.png" class="sentImage"><br><span>09:55</span>' },
+            { rec1: "I had to put more and more nickels in his handset, so he would get used to the weight. Then one day… I took ‘em all out.<br><span>10:55</span>", sent: "From time to time I send Dwight faxes. From himself. From the future<br><span>16:24</span>", rec2: '<img src="static/images/delusion2.png" class="sentImage"><br><span>17:20</span>', rec3: "" },
+            { rec1: "There’s nothing better than a beautiful day at the beach, filled with sun, surf, and… uh, diligent note-taking<br><span>09:08</span>", sent: "", rec2: '<img src="static/images/same.png" class="sentImage"><br><span>13:14</span>', rec3: "" },
+            { rec1: "Boy, Have You Lost Your Mind, Cause I'll Help You Find It!<br><span>12:47</span>", sent: "I got them a toaster. I tried to return the toaster, but the store said they no longer sold that kind of toaster, so my house now has two toasters.<br><span>15:02</span>", rec2: "", rec3: '<img src="static/images/fire.png" class="sentImage"><br><span>16:22</span>' }
         ]
         const users = [
             { name: "Micheal Scott", nickname: "Prison Mike", img: "/static/images/prisonmike.png", password: "12345", id: 1, chat: messages[0] },

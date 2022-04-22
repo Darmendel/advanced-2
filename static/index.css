@@ -187,10 +187,12 @@ body {
 .chatbox {
     position: relative;
     width: 100%;
-    height: calc(100% - 150px);
-    padding: 50px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    /* height: 300px; */
+    max-height: 400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     overflow-y: auto;
 }
 
@@ -256,4 +258,6 @@ body {
     background: linear-gradient(225deg, rgb(215, 248, 210) 0%, rgb(215, 248, 210) 50%, transparent 50%, transparent);
 }
 
-
+.sentImage {
+    max-height: 140px;
+}

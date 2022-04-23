@@ -1,5 +1,6 @@
 var numberOfUsers = 5;
 var newUsers = [];
+var currentUser;
 
 const exists = function (user, users) {
     return users.some(u => u.name === user);
@@ -23,6 +24,8 @@ const checkRecipient = function(user, users) {
     }
     empty('floatingInputValue');
 }
+
+
 
 const uploadImage = function() {
     $('#modalUploadImage').modal("show");
@@ -105,6 +108,7 @@ const buttons = function() {
     div.appendChild(toolbar);
 }
 
+// return 1 if the message is not empty
 const sendMessage = function(message, chatbox, bool = true) {
     if (message != "") {
         let m = document.createElement('div');
@@ -119,6 +123,22 @@ const sendMessage = function(message, chatbox, bool = true) {
         p.innerHTML = message;
         m.appendChild(p);
         chatbox.appendChild(m);
+
+        return 1;
+    }
+
+    return 0;
+}
+
+const sendNewMessage = function(user, message, chatbox) {
+    let i = 0;
+    if (!$.isEmptyObject(user.newMessages)) {
+        i = Object.keys(user.newMessages).length;
+    }
+
+    let sent = sendMessage(message, chatbox);
+    if (sent) {
+        user.newMessages['' + i] = message;
     }
 }
 
@@ -136,6 +156,11 @@ const displayInnerChat = function(user) {
     sendMessage(user.chat.rec2, chatbox);
     sendMessage(user.chat.rec3, chatbox);
 
+    if (!$.isEmptyObject(user.newMessages)) {
+        for (let num of Object.keys(user.newMessages)) {
+            sendMessage(user.newMessages[num], chatbox);
+        }
+    }
     div.appendChild(chatbox);
     chat.appendChild(div);
 }
@@ -143,9 +168,7 @@ const displayInnerChat = function(user) {
 const displayChat = function(user) {
     let div = document.getElementById('chat');
     div.innerHTML = "";
-
-    // let u = document.createElement('ul');
-    // u.className = "list-group";
+    currentUser = user;
 
     // top
     let lt = document.createElement('li');
@@ -161,12 +184,7 @@ const displayChat = function(user) {
     sp.innerHTML = user.nickname;
 
     // middle
-    // let inner = document.createElement('div');
-    // inner.className = "card position-absolute bottom-0 start-0";
-    // div.appendChild(inner);
-    // inner.id = "inner";
     displayInnerChat(user);
-    let inner = document.getElementById('inner');
 
     // bottom
     let db = document.createElement('div');
@@ -193,16 +211,7 @@ const displayChat = function(user) {
     send.innerHTML = "Send";
     send.onclick = function() {
         let chat = document.getElementById('chatbox');
-        let div = document.createElement('div');
-        div.className = "chats";
-        let cb = document.createElement('div');
-        cb.className = "chatbox col-xs-3 col-sm-5 col-m-7 col-lg-12 col-xl-15";
-
-        sendMessage(input.value + '<br><span>' + time() + '</span>', cb);
-
-        div.appendChild(cb);
-        chat.appendChild(div);
-
+        sendNewMessage(user, input.value + '<br><span>' + time() + '</span>', chat);
         input.value = '';
     }
 
@@ -214,8 +223,6 @@ const displayChat = function(user) {
     lt.appendChild(sp);
     div.appendChild(lt);
     inner.appendChild(db);
-    // u.appendChild(chatbox);
-    // div.appendChild(u);
 }
 
 const addRecipient = function(user) {
@@ -224,12 +231,11 @@ const addRecipient = function(user) {
     }
 
     if (!(typeof user === 'object')) {
-        let b = newUsers.some(u => u === user);
-        if (b) {
+        if (exists(user, newUsers)) {
             return;
         }
-        user = { name: user, nickname: user, img: "/static/images/icon.png", password: "12345", id: ++numberOfUsers, chat: {rec1: "", sent: "", rec2: "", rec3: ""} }
-        newUsers.push(user.name);
+        user = { name: user, nickname: user, img: "/static/images/icon.png", password: "12345", id: ++numberOfUsers, chat: {rec1: "", sent: "", rec2: "", rec3: ""}, newMessages: [] }
+        newUsers.push(user);
         
     }
 

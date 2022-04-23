@@ -25,7 +25,7 @@
 
             <!-- left side -->
             <div class="left">
-                <div class="col-3 bg-light vh-100">
+                <div class="col-3 bg-light">
                     <div class="header">
                         <ul class="list-group">
                             <li class="list-group-item d-flex align-items-center" id="left">
@@ -100,8 +100,8 @@
                                 <form class="form-floating">
                                     <div class="input-group">
                                         <input type="file" class="form-control" id="inputGroupFile04"
-                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                        <button class="btn btn-outline-secondary" type="button"
+                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="image/png image/jpg">
+                                        <button class="btn btn-outline-secondary" type="button" onclick="sendImage()"
                                             id="inputGroupFileAddon04"><i class="bi bi-file-arrow-up"></i></button>
                                     </div>
                                 </form>
@@ -161,7 +161,30 @@
 
             <script>
                 function sendImage() {
+                    $('#modalUploadImage').modal("toggle");
+                    let chatbox = document.getElementById('chatbox');
 
+                    let input = document.getElementById('inputGroupFile04');
+                    // input.addEventListener("change",)
+                    const file = input.files[0];
+
+                    if (file) {
+                        const reader = new FileReader();
+
+                        let start = '<img src="';
+                        let src = reader.result;
+                        let end = '" class="sentImage new"><br><span>' + time() + '</span>';
+
+                        reader.addEventListener("load", function() {
+                            src = this.result;
+                            console.log(this);
+                            console.log(src);
+                            sendNewMessage(currentUser, start + src + end, chatbox);
+                        });
+
+                        reader.readAsDataURL(file);
+                        
+                    }                   
                 }
 
                 function sendVideo() {
@@ -216,11 +239,11 @@
             { rec1: "Boy, Have You Lost Your Mind, Cause I'll Help You Find It!<br><span>12:47</span>", sent: "I got them a toaster. I tried to return the toaster, but the store said they no longer sold that kind of toaster, so my house now has two toasters.<br><span>15:02</span>", rec2: "", rec3: '<img src="static/images/fire.png" class="sentImage"><br><span>16:22</span>' }
         ]
         const users = [
-            { name: "Micheal Scott", nickname: "Prison Mike", img: "/static/images/prisonmike.png", password: "12345", id: 1, chat: messages[0] },
-            { name: "Dwight Schrute", nickname: "Dwight", img: "/static/images/dd.png", password: "12345", id: 2, chat: messages[1] },
-            { name: "Jim Halpert", nickname: "Jimothy", img: "/static/images/jim.png", password: "12345", id: 3, chat: messages[2] },
-            { name: "Pam Beesly", nickname: "Pamela", img: "/static/images/pam.png", password: "12345", id: 4, chat: messages[3] },
-            { name: "Stanely Hudson", nickname: "Stanely the manley", img: "/static/images/stanley.png", password: "12345", id: 5, chat: messages[4] },
+            { name: "Micheal Scott", nickname: "Prison Mike", img: "/static/images/prisonmike.png", password: "12345", id: 1, chat: messages[0], newMessages: {} },
+            { name: "Dwight Schrute", nickname: "Dwight", img: "/static/images/dd.png", password: "12345", id: 2, chat: messages[1], newMessages: {} },
+            { name: "Jim Halpert", nickname: "Jimothy", img: "/static/images/jim.png", password: "12345", id: 3, chat: messages[2], newMessages: {} },
+            { name: "Pam Beesly", nickname: "Pamela", img: "/static/images/pam.png", password: "12345", id: 4, chat: messages[3], newMessages: {} },
+            { name: "Stanely Hudson", nickname: "Stanely the manley", img: "/static/images/stanley.png", password: "12345", id: 5, chat: messages[4], newMessages: {} },
         ]
 
         users.forEach(user => addRecipient(user));

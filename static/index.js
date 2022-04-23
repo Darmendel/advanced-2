@@ -25,7 +25,20 @@ const checkRecipient = function(user, users) {
     empty('floatingInputValue');
 }
 
+const updateLastMessage = function(user, lastMessage) {
+    lastMessage.innerHTML = '<br>';
 
+    if (user.lastMessage === "text") {
+        lastMessage.innerHTML += user.chat.rec4.slice(0, 20);
+        lastMessage.innerHTML = lastMessage.innerHTML.replace("<br><span>","");
+        lastMessage.innerHTML = lastMessage.innerHTML.replace("</span>", "");
+        lastMessage.innerHTML = lastMessage.innerHTML.replace(new RegExp("[0-9]", "g"), "");
+        lastMessage.innerHTML = lastMessage.innerHTML.replace(":", "");
+        lastMessage.innerHTML += "...";
+    } else {
+        lastMessage.innerHTML += user.lastMessage;
+    }
+}
 
 const uploadImage = function() {
     $('#modalUploadImage').modal("show");
@@ -139,6 +152,7 @@ const sendNewMessage = function(user, message, chatbox) {
     let sent = sendMessage(message, chatbox);
     if (sent) {
         user.newMessages['' + i] = message;
+        currentUser.lastMessage = "text";
     }
 }
 
@@ -155,6 +169,7 @@ const displayInnerChat = function(user) {
     sendMessage(user.chat.sent, chatbox, false);
     sendMessage(user.chat.rec2, chatbox);
     sendMessage(user.chat.rec3, chatbox);
+    sendMessage(user.chat.rec4, chatbox);
 
     if (!$.isEmptyObject(user.newMessages)) {
         for (let num of Object.keys(user.newMessages)) {
@@ -210,9 +225,12 @@ const displayChat = function(user) {
     send.type = "button";
     send.innerHTML = "Send";
     send.onclick = function() {
-        let chat = document.getElementById('chatbox');
-        sendNewMessage(user, input.value + '<br><span>' + time() + '</span>', chat);
-        input.value = '';
+        if (input.value != "") {
+            let chat = document.getElementById('chatbox');
+            sendNewMessage(user, input.value + '<br><span>' + time() + '</span>', chat);
+            input.value = '';
+        }
+        
     }
 
     button.appendChild(i1);
@@ -234,14 +252,14 @@ const addRecipient = function(user) {
         if (exists(user, newUsers)) {
             return;
         }
-        user = { name: user, nickname: user, img: "/static/images/icon.png", password: "12345", id: ++numberOfUsers, chat: {rec1: "", sent: "", rec2: "", rec3: ""}, newMessages: [] }
+        user = { name: user, nickname: user, img: "/static/images/icon.png", password: "12345", id: ++numberOfUsers, chat: {rec1: "", sent: "", rec2: "", rec3: "", rec4: ""}, newMessages: {}, lastMessage: "" }
         newUsers.push(user);
         
     }
 
     let ul = document.getElementById('lst');
     let li = document.createElement('li');
-    li.className = "list-group-item d-flex align-items-center";
+    li.className = "list-group-item d-flex align-items-top";
 
     li.onclick = function () {
         displayChat(user);
@@ -254,12 +272,19 @@ const addRecipient = function(user) {
     let span = document.createElement('span');
     span.innerHTML = user.nickname;
 
+    let lastMessage = document.createElement('span');
+    lastMessage.class = "d-flex align-items-bottom fw-lighter";
+    lastMessage.id = "lastMessage";
+    updateLastMessage(user, lastMessage);
+    
+
     let cite = document.createElement('cite');
     cite.className = "w-100 ms-5";
     cite.title = "Source Title";
     cite.innerHTML = "1 minute ago"; // need to be changed whenever a new recipient is being added!
 
     li.appendChild(img);
+    span.appendChild(lastMessage);
     li.appendChild(span);
     li.appendChild(cite);
     ul.appendChild(li);

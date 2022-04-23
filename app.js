@@ -6,6 +6,7 @@ const port = 12327;
 var database;
 
 app.use("/static", express.static('./static/'));
+app.use("/images", express.static('./images/'));
 app.set('view engine', 'ejs');
 
 fs.readFile(__dirname + "/" + "users.json", 'utf8', function (err, data) {
@@ -17,6 +18,14 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'static/index.html'));
 });
 
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'static/Login.html'));
+});
+
+app.get('/sign', (req, res) => {
+    res.sendFile(path.join(__dirname, 'static/sign.html'));
+});
+
 app.get('/listUsers', (req, res) => {
     res.render("users", { "users": database });
 });
@@ -25,6 +34,7 @@ app.get('/:id', (req, res) => {
     var user = database["user" + req.params.id];
     res.end(JSON.stringify(user));
 })
+
 
 app.post('/addUser', (req, res) => {
     id = req.query.id;

@@ -8,14 +8,18 @@
   
   body {
     width: 100%;
-    height: 100vh;
+  height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-image: url(city2.jpg);
-    background-size: cover;
-    background-position: center;
-    font-family: sans-serif;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(C:\Users\pc2\empty\static\images\bg.png);
+
+    background: linear-gradient(
+        #d6c4fb 0%,
+        #d6c4fb 130px,
+        #eae6f3 130px,
+        #eae6f3 100%);
 }
 
 .signupFrm {

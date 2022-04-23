@@ -10,7 +10,6 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(city2.jpg);
   background-size: cover;
   background-position: center;
   font-family: sans-serif;

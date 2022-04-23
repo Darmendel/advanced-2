@@ -4,7 +4,7 @@ username = form.querySelector(".user"),
 eInput = username.querySelector("input"),
 pass = form.querySelector(".password"),
 pInput = pass.querySelector("input");
-
+//function ready(){
 form.onsubmit = (e)=>{
   e.preventDefault(); //preventing from form submitting
   //if user/pass are not valid -> do the shake and error message
@@ -36,7 +36,7 @@ form.onsubmit = (e)=>{
   }
 
   function pass_func(){ 
-    let pattern =  /^[A-Za-z]\w{7,14}$/;
+    let pattern =  /^[A-Za-z]\w{1,9}$/;
   
     if(!pInput.value.match(pattern)){ //if pattern not matched then add error 
       pass.classList.add("error");
@@ -55,6 +55,9 @@ form.onsubmit = (e)=>{
 
   //if username and password don't contains error class that mean user filled details properly
   if(!username.classList.contains("error") && !pass.classList.contains("error")){
+   // if(user_records.includes(eInput.value)){
     window.location.href = "index.html"; 
+    //}
   }
+
 }

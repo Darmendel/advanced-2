@@ -1,6 +1,6 @@
+
 function validication() {
 
-  
     var username=document.getElementById("user").value;
     var nickn=document.getElementById("nickname").value;
     var psw=document.getElementById("password").value;
@@ -20,6 +20,12 @@ function validication() {
         {
             alert('The user already exist')
         }
+        let pattern =  /^[A-Za-z]\w{1,9}$/;
+      
+        if(!pass.value.match(pattern)){ //if pattern not matched then add error 
+          alert("Password has to include characters and numbers")
+        }
+
         else if((user.value!="")|| (pass.value!="")){
           user_records.push({
             "user":username,
@@ -29,9 +35,12 @@ function validication() {
           })
         localStorage.setItem("users",JSON.stringify(user_records)); 
         }
+        if(true){
+        window.location.href = "Login.html"; 
+        }
 
           //if username and password don't contains error class that mean user filled details properly
-        if(username.validication=true){
-        window.location.href = "Login.html"; 
-  }
+       // if(user_records.includes('user.value')){
+       
+//}
 }

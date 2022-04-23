@@ -97,15 +97,22 @@
     color: orange
 }
 
+.save {
+  text-align: center;
+  height: 5px;
+  width: 100%;
+  margin-bottom: 40px;
+  transition: 0.5s;
+}
+
 .form-submit {
     justify-content: center;
     align-items: center;
     background-color: gray;
-    padding: 10px 55px;
+    padding: 9px 45px;
     font-weight: 600;
     color: whitesmoke;
     border: none;
-    width: 100%;
     font-size: 14px;
     border-radius: 8px;
     

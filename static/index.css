@@ -263,3 +263,12 @@ body {
 .sentImage {
     max-height: 140px;
 }
+
+.sentVideo {
+    max-height: 140px;
+}
+
+#lastMessage {
+    font-size: small;
+    color: rgb(140, 140, 140);
+}

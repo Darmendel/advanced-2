@@ -33,7 +33,7 @@ In this page you can continue as usual, by clicking the relevant button to you o
 
 **************************************************************************
 
-__Extra: if you want to see each page individually you can do this:
+***__Extra***: if you want to see each page individually you can do this:
 
 run >node app.js - in terminal
 

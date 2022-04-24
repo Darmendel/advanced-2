@@ -47,7 +47,9 @@ Web Chat Page : http://localhost:12327/
 
 
 
-<h3> Screenshot for the WebChat Page</h3>
+
+
+<h3> Screenshot for the WebChat Page includes some examples</h3>
 
 ![image](https://user-images.githubusercontent.com/73133299/164951321-40dfb1d2-d804-427e-98a8-3678a145fcd0.png)
 

@@ -1,6 +1,18 @@
-//import { user_records } from "./script2";
-//user_records = require('./script2"');
 
+var users = [{
+  usr: 'tinkiwinki',
+  nickn: 'tiwi',
+  pas: 'tinki12',
+ 
+}, {
+  usr: 'depsi',
+  nickn: 'depsipo',
+  pas: 'depsi34',
+}, {
+  usr: 'lalapo',
+  nickn: 'lapo',
+  pas: 'lala789',
+}];
 
 const form = document.querySelector("form");
 username = form.querySelector(".user"),
@@ -19,9 +31,23 @@ form.onsubmit = (e)=>{
     pass.classList.remove("shake");
   }, 500);
 
-
   eInput.onkeyup = ()=>{user_func();} //calling function
   pInput.onkeyup = ()=>{pass_func();} //calling function
+
+
+ // for (var index in users) {
+    var user0 = users[0];
+    var user1 = users[1];
+    var user2 = users[2];
+    if(eInput.value != ""){
+    if ((eInput.value === user0.usr && pInput.value === user0.pas) || (eInput.value === user1.usr && pInput.value === user1.pas) ||
+    (eInput.value === user2.usr && pInput.value === user2.pas)) {
+    window.location.href = "http://localhost:12327/"; 
+    }
+    else{
+      alert("User does not exist.")
+    }
+    }
 
   function user_func(){ 
     
@@ -35,7 +61,7 @@ form.onsubmit = (e)=>{
       username.classList.remove("error");
       username.classList.add("valid");
     }
-   
+  
   }
 
   function pass_func(){ 
@@ -54,13 +80,6 @@ form.onsubmit = (e)=>{
       pass.classList.remove("error");
       pass.classList.add("valid");
     }
-  }
-
-  //if username and password don't contains error class that mean user filled details properly
-  if(!username.classList.contains("error") && !pass.classList.contains("error")){
-    //if(user_records.includes(eInput.value)){
-    window.location.href = "http://localhost:12327/"; 
-   // }
   }
 
 }

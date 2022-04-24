@@ -1,4 +1,3 @@
-export const user_records=[];
 
 var nickname=s=new Array();
 function validication() {

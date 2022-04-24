@@ -30,6 +30,22 @@ which is the first page (Log in Page) the client should start from.
 
 In this page you can continue as usual, by clicking the relevant button or filling the relevant fields(user/pass).
 
+***NOTE:*** 
+If you want to login to the chat website, please choose one of the users&password from the hard coded list:
+
+  usr: tinkiwinki
+  pas: tinki12,
+  
+OR-
+
+  usr: depsi
+  pas: depsi34
+  
+OR-
+
+  usr: lalapo
+  pas: lala789
+
 
 *********************************************************************
 

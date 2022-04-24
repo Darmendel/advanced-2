@@ -1,3 +1,6 @@
+//import { user_records } from "./script2";
+//user_records = require('./script2"');
+
 
 const form = document.querySelector("form");
 username = form.querySelector(".user"),
@@ -55,9 +58,9 @@ form.onsubmit = (e)=>{
 
   //if username and password don't contains error class that mean user filled details properly
   if(!username.classList.contains("error") && !pass.classList.contains("error")){
-   // if(user_records.includes(eInput.value)){
+    //if(user_records.includes(eInput.value)){
     window.location.href = "http://localhost:12327/"; 
-    //}
+   // }
   }
 
 }

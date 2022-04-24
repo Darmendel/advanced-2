@@ -2,7 +2,7 @@
 
 
 
-**1) Installation:**
+<h4>1) Installation:</h4>
 
 Please make sure you have installed node+npm and all relevant packages.
 
@@ -12,7 +12,7 @@ Like this:
 
 ->npm update..
 
-<h3>2) Running:</h3>
+<h4>2) Running:</h4>
 
 Start with running this command in the terminal/cmd:
 

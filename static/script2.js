@@ -1,4 +1,6 @@
+export const user_records=[];
 
+var nickname=s=new Array();
 function validication() {
 
   var username=document.getElementById("user").value;
@@ -37,13 +39,12 @@ function validication() {
           
         })
       localStorage.setItem("users",JSON.stringify(user_records)); 
-      }
-      if(true){
-      window.location.href = "Login.html"; 
-      }
+      window.location.href = "http://localhost:12327/login"; 
 
-        //if username and password don't contains error class that mean user filled details properly
+      }
+      
+    
+
      // if(user_records.includes('user.value')){
-     
-//}
+
 }

@@ -12,7 +12,7 @@ Like this:
 
 ->npm update..
 
-<h2>**2) Running:**</h2>
+<h3>2) Running:</h3>
 
 Start with running this command in the terminal/cmd:
 

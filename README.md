@@ -24,14 +24,14 @@ note: port is ('0.0.0.0')
 
 After making sure that it's running:
 
-Open a new Tab in chrome and Paste this link : http://localhost:12327/login 
+Open a new Tab in chrome and Paste this link : http://localhost:12327/login.
 
 which is the first page (Log in Page) the client should start from.
 
-In this page you can continue as usual, by clicking the relevant button to you or filling the relevant fields(user/pass).
+In this page you can continue as usual, by clicking the relevant button or filling the relevant fields(user/pass).
 
 
-**************************************************************************
+* * * * * *********************************************************************
 
 ***__Extra***: if you want to see each page individually you can do this:
 

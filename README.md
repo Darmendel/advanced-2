@@ -30,6 +30,19 @@ which is the first page (Log in Page) the client should start from.
 
 In this page you can continue as usual, by clicking the relevant button or filling the relevant fields(user/pass).
 
+***NOTE:*** 
+If you want to login to the chat website, please choose one of the users&password from the hard coded list:
+
+  usr: tinkiwinki , pas: tinki12
+  
+OR-
+
+  usr: depsi , pas: depsi34
+  
+OR-
+
+  usr: lalapo , pas: lala789
+
 
 *********************************************************************
 
@@ -51,9 +64,7 @@ Web Chat Page : http://localhost:12327/
 
 <h3> Screenshot for the WebChat Page includes some examples</h3>
 
-![image](https://user-images.githubusercontent.com/73133299/164951321-40dfb1d2-d804-427e-98a8-3678a145fcd0.png)
-
-
+![Screenshot from 2022-04-24 15-36-27](https://user-images.githubusercontent.com/92433505/164977069-01ad2a50-d91f-4f81-b606-75d36f8b2f5a.png)
 
 
 *Hope you enjoy visiting the Web :) .*

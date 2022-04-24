@@ -23,5 +23,6 @@ note: port is ('0.0.0.0')
 
 
 After making sure that it's running:
+
 Open a new Tab in chrome and Paste this link : http://localhost:12327/login 
 which is the first page (Log in Page) the client should start from.

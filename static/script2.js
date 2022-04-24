@@ -14,16 +14,19 @@ function validication() {
       }
       if (pass.value.length <= 8 && pass.value.length >= 2) {} else {
           alert("Password has to be between 2-8 characters.")
+          return false;
       }
     
       if(user_records.some((v)=>{return v.user==user.value}))
       {
           alert('The user already exist')
+          return false;
       }
       let pattern =  /^[A-Za-z]\w{1,9}$/;
     
       if(!pass.value.match(pattern)){ //if pattern not matched then add error 
         alert("Password has to include characters and numbers")
+        return false;
       }
 
       else if((user.value!="")|| (pass.value!="")){

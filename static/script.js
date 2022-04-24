@@ -56,7 +56,7 @@ form.onsubmit = (e)=>{
   //if username and password don't contains error class that mean user filled details properly
   if(!username.classList.contains("error") && !pass.classList.contains("error")){
    // if(user_records.includes(eInput.value)){
-    window.location.href = "index.html"; 
+    window.location.href = "http://localhost:12327/"; 
     //}
   }
 

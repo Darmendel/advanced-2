@@ -42,6 +42,7 @@ function validication() {
           
         })
       localStorage.setItem("users",JSON.stringify(user_records)); 
+      alert('Registered successfully')
       window.location.href = "http://localhost:12327/login"; 
 
       }    

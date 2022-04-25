@@ -12,7 +12,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     background-image: url(C:\Users\pc2\empty\static\images\bg.png);
 
     background: linear-gradient(

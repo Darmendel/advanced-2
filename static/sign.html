@@ -17,7 +17,6 @@
     <form action="" class="form">
       <h1 class="title">Sign up</h1>
 
-
       <div class="inputContainer">
         <input type="text" class="input" placeholder="a" id="user" name="user">
         <label for="" class="label">Username</label>
@@ -26,12 +25,19 @@
       </div>
 
       <div class="inputContainer">
-        <input type="text" class="input" placeholder="a" id="password" name="password">
+        <input type="password" class="input" placeholder="a" id="password" name="password">
         <label for="" class="label">Password</label>
 
         <i class="icon fas fa-lock"></i>
       </div>
 
+      <div class="inputContainer">
+        <input type="password" class="input" placeholder="a" id="confirm" name="confirm">
+        <label for="" class="label">Confirm Password</label>
+
+        <i class="icon fas fa-check"></i>
+      </div>
+    
       <div class="inputContainer">
         <input type="text" class="input" placeholder="a" id="nickname" name="nickname">
         <label for="" class="label">DisplayName</label>
@@ -41,22 +47,12 @@
       <div class="save">
         <input type="submit" onclick="validication()" name="" value="Register">
       </div>
-      
+    
       <a class="form-submit" href="http://localhost:12327/login">Go Back to Log In</a>
     </div>
     
     </form>
   
   </body>
-<script src="script2.js"></script>
-<script type="module"></script>
-<script>
-  const users = [
-      { name : "Teletu1", nickname : "TinkiWinki", password : "Tinki12", id : 1 },
-      { name : "Teletu2", nickname : "Depsi", password : "Depsi34", id : 2 },
-      { name : "Teletu3", nickname : "LaLa", password : "Lala456", id : 3},
-  ]
- // users.forEach(user => addRecipient(user));
-</script>
    
 </html>
